@@ -1,34 +1,33 @@
 import streamlit as st
 
-# Judul halaman
-st.title("Aplikasi Web Sederhana")
+# Title of the web app
+st.title("My Streamlit Web App")
 
-# Teks
-st.header("Ini adalah header")
-st.subheader("Ini adalah subheader")
-st.text("Ini adalah teks biasa")
+# Add some text to the app
+st.header("Welcome to my web app!")
+st.subheader("Here's a simple example:")
 
-# Gambar
-st.image("gambar.jpg", caption="Ini adalah gambar")
+# Add an input widget to the app
+name = st.text_input("Enter your name", "John Doe")
 
-# Tombol
-if st.button("Klik di sini"):
-    st.write("Tombol telah diklik!")
+# Add a button widget to the app
+button_clicked = st.button("Submit")
 
-# Input teks
-nama = st.text_input("Masukkan nama Anda", "John Doe")
-st.write("Halo, ", nama, "!")
+# Check if the button is clicked
+if button_clicked:
+    # Display a message with the entered name
+    st.success(f"Hello, {name}!")
 
-# Pilihan
-options = ["Pilihan 1", "Pilihan 2", "Pilihan 3"]
-pilihan = st.selectbox("Pilih opsi", options)
-st.write("Anda memilih: ", pilihan)
+# Add a plot to the app
+st.subheader("Data Visualization")
+data = [1, 2, 3, 4, 5]
+st.line_chart(data)
 
-# Slider
-age = st.slider("Pilih usia Anda", 0, 100, 25)
-st.write("Usia Anda: ", age)
+# Add a sidebar to the app
+st.sidebar.header("Sidebar")
+sidebar_selection = st.sidebar.selectbox(
+    "Select an option", ["Option 1", "Option 2", "Option 3"]
+)
 
-# Tampilan data
-data = {"Nama": ["John", "Jane", "Bob"], "Usia": [25, 30, 35]}
-df = pd.DataFrame(data)
-st.write(df)
+# Display the selected option from the sidebar
+st.sidebar.text(f"Selected: {sidebar_selection}")
